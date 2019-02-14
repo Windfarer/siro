@@ -2351,10 +2351,9 @@ gulplog@^1.0.0:
   dependencies:
     glogg "^1.0.0"
 
-han-css@^3.3.0:
+"han-css@https://github.com/ethantw/Han#master":
   version "3.3.0"
-  resolved "https://registry.yarnpkg.com/han-css/-/han-css-3.3.0.tgz#b8f68686fe6a69e51de7a352293edaa83d1304e3"
-  integrity sha1-uPaGhv5qaeUd56NSKT7aqD0TBOM=
+  resolved "https://github.com/ethantw/Han#eb804d5a1828072ceb6d36256400d9a67f10ec17"
   dependencies:
     fibre.js "^0.2.1"
     normalize.css "^4.0.0"

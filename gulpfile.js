@@ -36,7 +36,7 @@ gulp.task('build', ['sass', 'js'], function (/* cb */) {
 gulp.task('generate', ['sass', 'js']);
 
 gulp.task('sass', function () {
-    return gulp.src('assets/sass/**/*.scss')
+    return gulp.src('assets/sass/**/*.+(scss|sass)')
         .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: ['node_modules']
