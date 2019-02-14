@@ -8,6 +8,10 @@ var sourcemaps = require('gulp-sourcemaps');
 var zip = require('gulp-zip');
 var uglify = require('gulp-uglify');
 var filter = require('gulp-filter');
+var sass = require('gulp-sass');
+
+sass.compiler = require('node-sass');
+
 
 // postcss plugins
 var autoprefixer = require('autoprefixer');
@@ -26,32 +30,49 @@ var nodemonServerInit = function () {
     livereload.listen(1234);
 };
 
-gulp.task('build', ['css', 'js'], function (/* cb */) {
+gulp.task('build', ['sass', 'css', 'js'], function (/* cb */) {
     return nodemonServerInit();
 });
 
-gulp.task('generate', ['css', 'js']);
+gulp.task('generate', ['sass', 'css', 'js']);
 
-gulp.task('css', function () {
+gulp.task('sass', function () {
     var processors = [
         easyimport,
         customProperties,
         colorFunction(),
-        autoprefixer({browsers: ['last 2 versions']}),
+        autoprefixer({ browsers: ['last 2 versions'] }),
         cssnano()
     ];
 
-    return gulp.src('assets/css/screen.css')
-        .on('error', swallowError)
+    return gulp.src('assets/sass/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(postcss(processors))
+        .pipe(sass({ includePaths: ['node_modules'] }).on('error', sass.logError))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('assets/built/'))
         .pipe(livereload());
 });
 
+gulp.task('css', function () {
+    // var processors = [
+    //     easyimport,
+    //     customProperties,
+    //     colorFunction(),
+    //     autoprefixer({ browsers: ['last 2 versions'] }),
+    //     cssnano()
+    // ];
+
+    // return gulp.src('assets/css/screen.css')
+    //     .on('error', swallowError)
+    //     .pipe(sourcemaps.init())
+    //     .pipe(postcss(processors))
+    //     .pipe(sourcemaps.write('.'))
+    //     .pipe(gulp.dest('assets/built/'))
+    //     .pipe(livereload());
+});
+
 gulp.task('js', function () {
-    var jsFilter = filter(['**/*.js'], {restore: true});
+    var jsFilter = filter(['**/*.js'], { restore: true });
 
     return gulp.src('assets/js/*.js')
         .on('error', swallowError)
@@ -66,9 +87,10 @@ gulp.task('js', function () {
 
 gulp.task('watch', function () {
     gulp.watch('assets/css/**/*.css', ['css']);
+    gulp.watch('assets/sass/**/*.scss', ['sass']);
 });
 
-gulp.task('zip', ['css', 'js'], function () {
+gulp.task('zip', ['sass', 'css', 'js'], function () {
     var targetDir = 'dist/';
     var themeName = require('./package.json').name;
     var filename = themeName + '.zip';
