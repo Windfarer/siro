@@ -5,15 +5,13 @@ production stylesheet in assets/built/screen.css using gulp dev
 
 */
 @import "normalize.css/normalize";
+
 @import "milligram/dist/milligram";
 
 @import 'han-css/src/sass/var';
 @import 'han-css/src/sass/api';
-
 @import 'han-css/src/sass/locale';
-
 @import 'han-css/src/sass/typography';
-
 @import 'han-css/src/sass/typeset';
 
 /* Main - Theme styles

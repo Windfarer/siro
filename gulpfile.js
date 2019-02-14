@@ -64,7 +64,7 @@ gulp.task('watch', function () {
     gulp.watch('assets/sass/**/*.scss', ['sass']);
 });
 
-gulp.task('zip', ['sass', 'css', 'js'], function () {
+gulp.task('zip', ['sass', 'js'], function () {
     var targetDir = 'dist/';
     var themeName = require('./package.json').name;
     var filename = themeName + '.zip';
