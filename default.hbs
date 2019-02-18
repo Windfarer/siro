@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="//cdn.staticfile.org/prism/9000.0.1/themes/prism.min.css" />
     <link rel="stylesheet" type="text/css" href="{{asset "built/index.css"}}" />
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
@@ -21,9 +22,7 @@
 </head>
 
 <body class="{{body_class}}">
-
     <div class="site-wrapper">
-
         <header class="site-head">
             <div class="site-head-container">
                 <nav id="swup" class="site-head-left">
@@ -36,20 +35,6 @@
                     {{else}}
                     <a class="site-head-logo" href="{{@site.url}}">{{@site.title}}</a>
                     {{/if}}
-                </div>
-                <div class="site-head-right">
-                    <div class="social-links">
-                        {{#if @site.facebook}}
-                        <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank"
-                            rel="noopener">Facebook</a>
-                        {{/if}}
-                        {{#if @site.twitter}}
-                        <a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank"
-                            rel="noopener">Twitter</a>
-                        {{/if}}
-                        <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank"
-                            rel="noopener">RSS</a>
-                    </div>
                 </div>
             </div>
         </header>
@@ -69,17 +54,13 @@
 
     </div>
 
-    {{#if pagination.pages}}
-    <script>
-        // maxPages is a global variable that is needed to determine
-        // if we need to load more pages for the infinitescroll, or if
-        // we reached the last page already.
-        var maxPages = parseInt('{{pagination.pages}}');
-    </script>
-    {{/if}}
-
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
+
+    <script type="text/javascript" src="//cdn.staticfile.org/prism/9000.0.1/prism.min.js"></script>
+    <script type="text/javascript" src="//cdn.staticfile.org/prism/9000.0.1/components/prism-python.min.js"></script>
+    <script type="text/javascript" src="//cdn.staticfile.org/prism/9000.0.1/components/prism-go.min.js"></script>
+    <script type="text/javascript" src="//cdn.staticfile.org/prism/9000.0.1/components/prism-rust.min.js"></script>
 
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
     {{ghost_foot}}

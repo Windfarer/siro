@@ -1,5 +1,5 @@
 {
-  "name": "basic",
+  "name": "siro",
   "description": "A simple looks theme for Ghost.",
   "demo": "https://starter.ghost.io",
   "version": "1.0.0",
@@ -35,10 +35,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Windfarer/basic.git"
+    "url": "https://github.com/Windfarer/siro.git"
   },
-  "bugs": "https://github.com/Windfarer/basic/issues",
-  "contributors": "https://github.com/Windfarer/basic/graphs/contributors",
+  "bugs": "https://github.com/Windfarer/siro/issues",
+  "contributors": "https://github.com/Windfarer/siro/graphs/contributors",
   "devDependencies": {
     "autoprefixer": "6.3.6",
     "cssnano": "3.7.1",
