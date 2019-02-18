@@ -4,13 +4,13 @@ into the {body} of the default.hbs template --}}
 
 {{#is "home"}}
 {{#if @site.description}}
-<header class="page-head">
-    <h2 class="page-head-title">{{@site.description}}</h2>
+<header>
+    <h2>{{@site.description}}</h2>
 </header>
 {{/if}}
 {{/is}}
 
-<div class="post-feed">
+<div>
     {{#foreach posts}}
 
     {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
