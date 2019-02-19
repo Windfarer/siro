@@ -24,8 +24,8 @@
 <body class="{{body_class}}">
     <div>
         <header>
-            <h1><a href="{{@site.url}}">{{@site.title}}</a></h1>
-            <h2 class="site-description">{{@site.description}}</h2>
+            <h1><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+            <h2 class="site-description">{{@blog.description}}</h2>
             <nav>
                 {{navigation}}
             </nav>
@@ -40,7 +40,7 @@
 
         {{!-- The footer at the very bottom of the screen --}}
         <footer>
-            &copy; {{date format="YYYY"}} <a href="{{@site.url}}">{{@site.title}}</a> &mdash; Published with <a
+            &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> &mdash; Published with <a
                 href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
         </footer>
 
