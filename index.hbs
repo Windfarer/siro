@@ -2,19 +2,17 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
-{{#is "home"}}
-{{#if @site.description}}
-<header>
-    <h2>{{@site.description}}</h2>
-</header>
-{{/if}}
-{{/is}}
-
-<div>
+<section>
     {{#foreach posts}}
-
-    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-    {{!-- {{> "post-card"}} --}}
-
+    {{> "post-list-item"}}
     {{/foreach}}
-</div>
+</section>
+<nav class="pagination" role="navigation">
+    {{#if prev}}
+    <a class="newer-posts" href="{{page_url prev}}">&larr; Newer Posts</a>
+    {{/if}}
+    <span class="page-number">Page {{page}} of {{pages}}</span>
+    {{#if next}}
+    <a class="older-posts" href="{{page_url next}}">Older Posts &rarr;</a>
+    {{/if}}
+</nav>
