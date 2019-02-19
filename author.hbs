@@ -5,15 +5,15 @@
 {{!-- Everything inside the #author tags pulls data from the author --}}
 <header>
     <h1>{{name}}</h1>
+    <p>{{#if website}}<a
+            href="{{website}}">{{website}}</a>。{{/if}}{{#if location}}{{location}}。{{/if}}{{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
+    </p>
     {{#if bio}}<p>{{bio}}</p>{{/if}}
 </header>
 {{/author}}
 
 <div>
     {{#foreach posts}}
-
-    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-    {{!-- {{> "post-card"}} --}}
-
+    {{> "post-list-item"}}
     {{/foreach}}
 </div>
