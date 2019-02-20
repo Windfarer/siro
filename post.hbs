@@ -2,43 +2,49 @@
 
 {{#post}}
 <article class="row">
-    <div class="row">
-        <header>
+    <div class="column">
+        <header class="row">
             <h1 class="column column-100">{{title}}</h1>
         </header>
-    </div>
 
-    {{#if custom_excerpt}}
-    <div class="row">
-        <p class="column column-100">{{custom_excerpt}}</p>
-    </div>
-    {{/if}}
+        {{#if custom_excerpt}}
+        <div class="row">
+            <p class="column column-100">{{custom_excerpt}}</p>
+        </div>
+        {{/if}}
 
-    {{#if feature_image}}
-    <div class="row">
-        <img class="column column-100" src="{{feature_image}}" alt="{{title}}" />
-    </div>
+        {{#if feature_image}}
+        <div class="row">
+            <img class="column column-100" src="{{feature_image}}" alt="{{title}}" />
+        </div>
 
-    {{/if}}
-    <div class="row">
-        <div class="column column-100">
-            {{content}}
+        {{/if}}
+        <div class="row">
+            <div class="column column-100">
+                {{content}}
+            </div>
+        </div>
+
+        <footer class="row">
+            <div class="column column-50">
+                {{#prev_post}}
+                <label>Previous Post:</label><a href="{{url}}">{{title}}</a>
+                {{/prev_post}}
+            </div>
+            <div class="column column-50">
+                {{#next_post}}
+                <label>Next Post:</label><a href="{{url}}">{{title}}</a>
+                {{/next_post}}
+            </div>
+            {{/post}}
+        </footer>
+
+        <div class="row">
+            <div class="column">
+                <div id="disqus_thread"></div>
+            </div>
         </div>
     </div>
-
-    <footer class="row">
-        {{#prev_post}}
-        <label class="column column-50">Previous Post:</label><a href="{{url}}">{{title}}</a>
-        {{/prev_post}}
-
-        {{#next_post}}
-        <label class="column column-50">Next Post:</label><a href="{{url}}">{{title}}</a>
-        {{/next_post}}
-        {{/post}}
-    </footer>
-
-    <div id="disqus_thread" class="row"></div>
-
 </article>
 
 
