@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-cmn-Hans" class="container">
 
 <head>
 
@@ -22,8 +22,8 @@
 </head>
 
 <body class="{{body_class}}">
-    <div>
-        <header>
+    <div class="row">
+        <header class="column column-10">
             <h1><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
             <h2 class="site-description">{{@blog.description}}</h2>
             <nav>
@@ -31,21 +31,22 @@
             </nav>
         </header>
 
-        <main>
+        <main class="column column-90">
 
-            {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
             {{{body}}}
 
+            <footer>
+                <p>&copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a></p>
+                <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a> | Theme by <a
+                        href="https://github.com/Windfarer/siro" target="_blank" rel="noopener">siro</a></p>
+            </footer>
         </main>
 
-        {{!-- The footer at the very bottom of the screen --}}
-        <footer>
-            <p>&copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a></p>
-            <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a> | Theme by <a
-                    href="https://github.com/Windfarer/siro" target="_blank" rel="noopener">siro</a></p>
-        </footer>
 
     </div>
+
+
+
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
@@ -70,7 +71,17 @@
             ga('create', window.ga_id, 'auto');
             ga('require', 'linkid', 'linkid.js');
             ga('send', 'pageview');
-        }
+        };
+
+        var disqus_shortname;
+        if (disqus_shortname && typeof disqus_shortname === "string") {
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq_cnt = document.createElement('script'); dsq_cnt.type = 'text/javascript'; dsq_cnt.async = true;
+                dsq_cnt.src = '//' + disqus_shortname + '.disqus.com/count.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq_cnt);
+            })();
+        };
     </script>
 
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}

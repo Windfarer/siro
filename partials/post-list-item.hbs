@@ -1,9 +1,11 @@
 <article class="{{post_class}}">
     <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
-    <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
+    <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">Read More...</a></p>
     <p class="post-footer">
         Posted by {{#primary_author}}<a title="{{name}}" href="{{url}}">{{name}}</a>{{/primary_author}}
         {{tags prefix=" on "}} at <time class="post-date"
             datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        <span><a href="{{url}}#disqus_thread" data-disqus-identifier="{{comment_id}}"></a></span>
     </p>
+
 </article>
