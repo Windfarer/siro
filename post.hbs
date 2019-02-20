@@ -1,30 +1,43 @@
 {{!< default}}
 
 {{#post}}
-<article>
-    <header>
-        <h1>{{title}}</h1>
-    </header>
+<article class="row">
+    <div class="row">
+        <header>
+            <h1 class="column column-100">{{title}}</h1>
+        </header>
+    </div>
 
     {{#if custom_excerpt}}
-    <p>{{custom_excerpt}}</p>
+    <div class="row">
+        <p class="column column-100">{{custom_excerpt}}</p>
+    </div>
     {{/if}}
 
     {{#if feature_image}}
-    <div>
-        <img src="{{feature_image}}" alt="{{title}}" />
+    <div class="row">
+        <img class="column column-100" src="{{feature_image}}" alt="{{title}}" />
     </div>
+
     {{/if}}
-
-    <div>
-        {{content}}
+    <div class="row">
+        <div class="column column-100">
+            {{content}}
+        </div>
     </div>
 
-    <footer>
+    <footer class="row">
+        {{#prev_post}}
+        <label class="column column-50">Previous Post:</label><a href="{{url}}">{{title}}</a>
+        {{/prev_post}}
 
+        {{#next_post}}
+        <label class="column column-50">Next Post:</label><a href="{{url}}">{{title}}</a>
+        {{/next_post}}
+        {{/post}}
     </footer>
 
-    <div id="disqus_thread"></div>
+    <div id="disqus_thread" class="row"></div>
 
 </article>
 
@@ -48,15 +61,6 @@
 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
         Disqus.</a></noscript>
-
-{{#prev_post}}
-<label>Previous Post:</label><a href="{{url}}">{{title}}</a>
-{{/prev_post}}
-
-{{#next_post}}
-<label>Next Post:</label><a href="{{url}}">{{title}}</a>
-{{/next_post}}
-{{/post}}
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
