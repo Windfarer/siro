@@ -19,3 +19,6 @@ production stylesheet in assets/built/screen.css using gulp dev
 
 /* Your styles here */
 
+nav > ul {
+    padding-left: 0;
+}

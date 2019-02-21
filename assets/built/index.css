@@ -2503,5 +2503,7 @@ h-char[display-as] {
 /* Main - Theme styles
 /* ---------------------------------------------------------- */
 /* Your styles here */
+nav > ul {
+  padding-left: 0; }
 
 /*# sourceMappingURL=index.css.map */
