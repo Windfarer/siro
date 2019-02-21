@@ -2503,7 +2503,21 @@ h-char[display-as] {
 /* Main - Theme styles
 /* ---------------------------------------------------------- */
 /* Your styles here */
-nav > ul {
+ul {
   padding-left: 0; }
+
+a {
+  color: #555555; }
+  a:hover {
+    color: #111111;
+    padding-bottom: 0.05em;
+    border-bottom: 1px solid;
+    text-decoration: none; }
+
+footer {
+  padding-top: 2em; }
+
+.post-content {
+  margin-top: 2em; }
 
 /*# sourceMappingURL=index.css.map */

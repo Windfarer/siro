@@ -4,7 +4,7 @@
 <article class="row">
     <div class="column">
         <header class="row">
-            <h1 class="column column-100">{{title}}</h1>
+            <h1 class="column column-100"><a href="{{url}}" title="{{title}}">{{title}}</a></h1>
         </header>
 
         {{#if custom_excerpt}}
@@ -20,20 +20,25 @@
 
         {{/if}}
         <div class="row">
-            <div class="column column-100">
+            <div class="column column-100 post-content">
                 {{content}}
             </div>
         </div>
+        <p class="post-footer">
+            Posted by {{#primary_author}}<a title="{{name}}" href="{{url}}">{{name}}</a>{{/primary_author}}
+            {{tags prefix=" on "}} at <time class="post-date"
+                datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        </p>
 
         <footer class="row">
             <div class="column column-50">
                 {{#prev_post}}
-                <label>Previous Post:</label><a href="{{url}}">{{title}}</a>
+                <label>Previous Post:</label><a href="{{url}}" title="{{title}}">{{title}}</a>
                 {{/prev_post}}
             </div>
             <div class="column column-50">
                 {{#next_post}}
-                <label>Next Post:</label><a href="{{url}}">{{title}}</a>
+                <label>Next Post:</label><a href="{{url}}" title="{{title}}">{{title}}</a>
                 {{/next_post}}
             </div>
             {{/post}}
