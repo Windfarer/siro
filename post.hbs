@@ -59,7 +59,7 @@
 
     if (disqus_shortname && typeof disqus_shortname === "string") {
         var disqus_config = function () {
-            this.page.identifier = "ghost-{{comment_id}}";
+            this.page.identifier = "{{comment_id}}";
         };
         (function () { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
