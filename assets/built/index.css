@@ -2519,6 +2519,10 @@ footer {
 
 .post-content {
   margin-top: 2em; }
+  .post-content a {
+    padding-bottom: 0.05em;
+    border-bottom: 1px solid;
+    text-decoration: none; }
 
 body {
   padding-top: 1em; }
